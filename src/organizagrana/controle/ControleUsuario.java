@@ -20,4 +20,7 @@ public class ControleUsuario {
     public Usuario inserirUsuario(Usuario usu) throws SQLException, ClassNotFoundException {
         return usuDao.inseri(usu);
     }
+    public Usuario buscarUsuario(Usuario usu) throws SQLException {
+        return usuDao.busca(usu);
+    }
 }

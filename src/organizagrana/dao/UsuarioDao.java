@@ -44,7 +44,6 @@ public class UsuarioDao {
         rs.close();
         stmt.close();
         return usus;
-        
     }
     
     public Usuario inseri(Usuario usu) throws SQLException{
@@ -67,6 +66,27 @@ public class UsuarioDao {
             usu.setId(idUsuario);
         }
         stmt.close();
+        return usu;
+    }
+        public Usuario busca(Usuario usu) throws SQLException{
+        String sql = "select * from usuario WHERE usuario_id = ?";
+        
+            PreparedStatement stmt = this.c.prepareStatement(sql);
+            // seta os valores
+            stmt.setInt(1,usu.getId());
+            // executa
+            ResultSet rs = stmt.executeQuery();
+ 
+            while (rs.next()) {
+                // criando o objeto Aluno
+                usu.setId(rs.getInt(1));
+                usu.setNome(rs.getString(2));
+                usu.setEmail(rs.getString(3));
+                usu.setSenha(rs.getString(4));
+                usu.setStatus(rs.getString(5));
+                
+                // adiciona o alu à lista de alus
+            }
         return usu;
     }
     

@@ -10,16 +10,16 @@ import javax.swing.JOptionPane;
         
         
         // Usuario
-        ControleUsuario contusu = new ControleUsuario();
+       ControleUsuario contusu = new ControleUsuario();
         List<Usuario> usus = contusu.listarTodosUsuarios();
         for (int i = 0; i < usus.size(); i++) {
-            JOptionPane.showMessageDialog(null,"Lista de Alunos: " + usus.get(i).getNome());
+            JOptionPane.showMessageDialog(null,"Lista de Usuarios: " + usus.get(i).getNome());
         }
         
         // Inserir Usuario
     
         /*Usuario usu1;
-        usu1 = new Usuario(7,"Alice Camachi","alice@gmail.com","123456","ativo");
+        usu1 = new Usuario(8,"Alice Camachi","alice@gmail.com","123456","ativo");
     
         usu1 = contusu.inserirUsuario(usu1);
         if(usu1.getId() != 0) {
@@ -28,7 +28,14 @@ import javax.swing.JOptionPane;
             JOptionPane.showMessageDialog(null,"Inserir - Status: " + usu1.getStatus());
         }*/
         
-        
+        Usuario usu2 = new Usuario(2,"","","","");
+        usu2= contusu.buscarUsuario(usu2);
+        if(usu2.getId() != 0) {
+            JOptionPane.showMessageDialog(null,"Busca - Nome: " + usu2.getNome());
+            JOptionPane.showMessageDialog(null,"Busca - Email: " + usu2.getEmail());
+            JOptionPane.showMessageDialog(null,"Busca - Status: " + usu2.getStatus());
+            JOptionPane.showMessageDialog(null,"Busca - Senha: " + usu2.getSenha());
+        }
         
     }    
 }
