@@ -112,7 +112,7 @@ public class UsuarioDao {
         String sql = "delete from usuario WHERE usuario_id = ?";
         // prepared statement para inserção
         PreparedStatement stmt = c.prepareStatement(sql);
-        // seta os valores
+        // seta os valores  
         stmt.setInt(1,usu.getId());
         // executa
         stmt.execute();
@@ -121,4 +121,32 @@ public class UsuarioDao {
         return usu;
     }
     
+    public List<Usuario> lista (Usuario a) throws SQLException{
+        // usus: array armazena a lista de registros
+        List<Usuario> usus = new ArrayList<>();
+        
+        String sql = "select * from usuario where usuario_nome_completo like ?";
+        PreparedStatement stmt = this.c.prepareStatement(sql);
+        // seta os valores
+        stmt.setString(1,"%" + a.getNome() + "%");
+        
+        ResultSet rs = stmt.executeQuery();
+        
+        while (rs.next()) {      
+            // criando o objeto Usuario
+            Usuario usu = new Usuario(
+                rs.getInt(1),
+                rs.getString(2),
+                rs.getString(3),
+                rs.getString(4),
+                rs.getString(5)
+            );
+            // adiciona o usu à lista de usus
+            usus.add(usu);
+        }
+        
+        rs.close();
+        stmt.close();
+        return usus;          
+    }
 }

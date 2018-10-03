@@ -29,4 +29,7 @@ public class ControleUsuario {
     public Usuario excluirUsuario(Usuario usu) throws SQLException {
         return usuDao.exclui(usu);
     }
+    public List<Usuario> listarAluno(Usuario usu) throws SQLException {
+        return usuDao.lista(usu);
+    }
 }
