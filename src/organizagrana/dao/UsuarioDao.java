@@ -108,4 +108,17 @@ public class UsuarioDao {
         return usu;
     }
     
+    public Usuario exclui(Usuario usu) throws SQLException{
+        String sql = "delete from usuario WHERE usuario_id = ?";
+        // prepared statement para inserção
+        PreparedStatement stmt = c.prepareStatement(sql);
+        // seta os valores
+        stmt.setInt(1,usu.getId());
+        // executa
+        stmt.execute();
+        stmt.close();
+        c.close();
+        return usu;
+    }
+    
 }

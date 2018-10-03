@@ -39,14 +39,16 @@ import javax.swing.JOptionPane;
         }
         
         // Alterar usuario
-        Usuario usu3 = new Usuario(3,"Leonardo","leo@gmail.com","123456","ativo");
+        /*Usuario usu3 = new Usuario(3,"Leonardo","leo@gmail.com","123456","ativo");
         usu3 = contusu.alterarUsuario(usu3);
         if(usu3.getId()!= 0) {
             JOptionPane.showMessageDialog(null,"Alterar - Nome: " + usu3.getNome());
             JOptionPane.showMessageDialog(null,"Alterar - Email: " + usu3.getEmail());
             JOptionPane.showMessageDialog(null,"Alterar - Senha: " + usu3.getSenha());
             JOptionPane.showMessageDialog(null,"Alterar - Status: " + usu3.getStatus());
-        } 
-        
+        }*/
+        // Excluir Aluno
+        Usuario usu4 = new Usuario(3,"","","","");
+        usu4= contusu.excluirUsuario(usu4);
     }    
 }
