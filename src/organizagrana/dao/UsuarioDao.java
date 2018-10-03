@@ -89,5 +89,23 @@ public class UsuarioDao {
             }
         return usu;
     }
+        
+    public Usuario alterar(Usuario usu) throws SQLException{
+        String sql = "UPDATE usuario SET usuario_nome_completo = ?, usuario_email = ?, usuario_senha = ?, usuario_status = ? WHERE usuario_id = ?";
+        // prepared statement para inserção
+        PreparedStatement stmt = c.prepareStatement(sql);
+        // seta os valores
+        
+        stmt.setString(1,usu.getNome());
+        stmt.setString(2,usu.getEmail());
+        stmt.setString(3,usu.getSenha());
+        stmt.setString(4,usu.getStatus());
+        stmt.setInt(5,usu.getId());
+       
+        // executa
+        stmt.execute();
+        stmt.close();
+        return usu;
+    }
     
 }

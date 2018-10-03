@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         
         
-        // Usuario
+        // Buscar Todos Usuario
        ControleUsuario contusu = new ControleUsuario();
         List<Usuario> usus = contusu.listarTodosUsuarios();
         for (int i = 0; i < usus.size(); i++) {
@@ -28,6 +28,7 @@ import javax.swing.JOptionPane;
             JOptionPane.showMessageDialog(null,"Inserir - Status: " + usu1.getStatus());
         }*/
         
+        //Buscar usuario
         Usuario usu2 = new Usuario(2,"","","","");
         usu2= contusu.buscarUsuario(usu2);
         if(usu2.getId() != 0) {
@@ -36,6 +37,16 @@ import javax.swing.JOptionPane;
             JOptionPane.showMessageDialog(null,"Busca - Status: " + usu2.getStatus());
             JOptionPane.showMessageDialog(null,"Busca - Senha: " + usu2.getSenha());
         }
+        
+        // Alterar usuario
+        Usuario usu3 = new Usuario(3,"Leonardo","leo@gmail.com","123456","ativo");
+        usu3 = contusu.alterarUsuario(usu3);
+        if(usu3.getId()!= 0) {
+            JOptionPane.showMessageDialog(null,"Alterar - Nome: " + usu3.getNome());
+            JOptionPane.showMessageDialog(null,"Alterar - Email: " + usu3.getEmail());
+            JOptionPane.showMessageDialog(null,"Alterar - Senha: " + usu3.getSenha());
+            JOptionPane.showMessageDialog(null,"Alterar - Status: " + usu3.getStatus());
+        } 
         
     }    
 }

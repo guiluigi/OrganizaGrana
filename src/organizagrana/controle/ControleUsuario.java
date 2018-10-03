@@ -23,4 +23,7 @@ public class ControleUsuario {
     public Usuario buscarUsuario(Usuario usu) throws SQLException {
         return usuDao.busca(usu);
     }
+    public Usuario alterarUsuario(Usuario usu) throws SQLException {
+        return usuDao.alterar(usu);
+    }
 }
