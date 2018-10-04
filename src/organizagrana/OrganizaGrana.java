@@ -5,6 +5,8 @@ import organizagrana.controle.ControleUsuario;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
+import organizagrana.bean.ContaCorrente;
+import organizagrana.controle.ControleContaCorrente;
  class OrganizaGrana {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         
@@ -29,14 +31,14 @@ import javax.swing.JOptionPane;
         }*/
         
         //Buscar usuario
-        Usuario usu2 = new Usuario(2,"","","","");
+        /*Usuario usu2 = new Usuario(2,"","","","");
         usu2= contusu.buscarUsuario(usu2);
         if(usu2.getId() != 0) {
             JOptionPane.showMessageDialog(null,"Busca - Nome: " + usu2.getNome());
             JOptionPane.showMessageDialog(null,"Busca - Email: " + usu2.getEmail());
             JOptionPane.showMessageDialog(null,"Busca - Status: " + usu2.getStatus());
             JOptionPane.showMessageDialog(null,"Busca - Senha: " + usu2.getSenha());
-        }
+        }*/
         
         // Alterar usuario
         /*Usuario usu3 = new Usuario(3,"Leonardo","leo@gmail.com","123456","ativo");
@@ -48,7 +50,15 @@ import javax.swing.JOptionPane;
             JOptionPane.showMessageDialog(null,"Alterar - Status: " + usu3.getStatus());
         }*/
         // Excluir Aluno
-        Usuario usu4 = new Usuario(3,"","","","");
-        usu4= contusu.excluirUsuario(usu4);
+        /*Usuario usu4 = new Usuario(3,"","","","");
+        usu4= contusu.excluirUsuario(usu4); */
+        
+        // Buscar Todos Usuario
+       ControleContaCorrente contcc = new ControleContaCorrente();
+        List<ContaCorrente> ccs = contcc.listarTodoContaCorrentes();
+        for (int i = 0; i < ccs.size(); i++) {
+            JOptionPane.showMessageDialog(null,"Lista de Contas: " + ccs.get(i).getNomeBanco());
+            JOptionPane.showMessageDialog(null,"Lista de ID Usuario: " + ccs.get(i).getId());
+        }
     }    
 }

@@ -1,22 +1,18 @@
 package organizagrana.bean;
-public class ContaCorrente {
+public class ContaCorrente{
     private int idBanco;
     private String nomeBanco;
     private int numeroConta;
     private int numeroAgencia;
     private float saldo;
-    private Usuario Usuario;
+    private Usuario id;
 
-    public ContaCorrente() {
-    }
-
-    public ContaCorrente(String nomeBanco, int numeroConta, int numeroAgencia, float saldo, Usuario Usuario) {
+    public ContaCorrente(int idBanco, String nomeBanco, int numeroConta, int numeroAgencia, float saldo) {
         this.idBanco = idBanco;
         this.nomeBanco = nomeBanco;
         this.numeroConta = numeroConta;
         this.numeroAgencia = numeroAgencia;
         this.saldo = saldo;
-        this.Usuario = Usuario;
     }
 
     public int getIdBanco() {
@@ -59,13 +55,12 @@ public class ContaCorrente {
         this.saldo = saldo;
     }
 
-    public Usuario getUsuario() {
-        return Usuario;
+    public Usuario getId() {
+        return id;
     }
 
-    public void setUsuario(Usuario Usuario) {
-        this.Usuario = Usuario;
+    public void setId(Usuario id) {
+        this.id = id;
     }
-
     
 }
